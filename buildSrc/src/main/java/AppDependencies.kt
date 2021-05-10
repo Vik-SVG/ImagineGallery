@@ -18,8 +18,6 @@ object AppDependencies {
 
     private val picassoDep = "com.squareup.picasso:picasso:${Versions.picassoVer}"
     private val paginLibaryDep = "androidx.paging:paging-runtime:${Versions.paging_version}"
-    private val pagingComposeIntegrationDep =
-        "androidx.paging:paging-compose:${Versions.pagindComposeVersion}"
 
 
     //ktor
@@ -37,8 +35,6 @@ object AppDependencies {
         "androidx.navigation:navigation-dynamic-features-fragment:${Versions.nav_version}"
     private const val navigationTest =
         "androidx.navigation:navigation-testing:${Versions.nav_version}"
-    private const val navigationCompose =
-        "androidx.navigation:navigation-compose:${Versions.navigationComposeVers}"
 
     //livedata
     private const val livedataDeps =
@@ -88,14 +84,12 @@ object AppDependencies {
     val customLibraries = arrayListOf<String>().apply {
         add(picassoDep)
         add(paginLibaryDep)
-        add(pagingComposeIntegrationDep)
         add(ktorEngine)
         add(ktorDep)
         add(hiltDeps)
         add(navigationFragment)
         add(navigationUi)
         add(navigationFeatureModule)
-        add(navigationCompose)
         add(livedataDeps)
         add(viewModelDeps)
         add(coroutinesDeps)

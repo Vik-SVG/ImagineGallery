@@ -22,11 +22,6 @@ abstract class BaseFragment<VB : ViewBinding?, VM : BaseViewModel?>(private val 
 
     protected var mViewModel: VM? = null
 
-    abstract val bindingVariable: Int
-
-    @get:LayoutRes
-    abstract val layoutId: Int
-
     override fun onAttach(context: Context) {
         super.onAttach(context)
         if (context is BaseActivity<*, *>) {
