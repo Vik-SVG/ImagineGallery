@@ -16,7 +16,7 @@ object Versions {
     const val kotlin = "1.5.0"
 
     //libs
-    const val coreKtx = "1.3.2"
+    const val coreKtx = "1.5.0-rc02"
     const val fragmentKtx = "1.3.3"
     const val activityKtx = "1.2.3"
     const val appcompat = "1.3.0-alpha01"

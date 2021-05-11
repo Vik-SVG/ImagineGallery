@@ -57,7 +57,7 @@
     <ConstraintSet android:id="@+id/start">
         <Constraint
             android:id="@+id/trapeze_right"
-            android:layout_width="120dp"
+            android:layout_width="150dp"
             android:layout_height="120dp"
             motion:layout_constraintBottom_toBottomOf="@id/guideline_top_40"
             motion:layout_constraintEnd_toStartOf="@+id/trapeze_left"
@@ -67,8 +67,8 @@
             motion:layout_constraintVertical_bias="0.0" />
         <Constraint
             android:id="@+id/trapeze_left"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
             motion:layout_constraintBottom_toBottomOf="@id/guideline_top_40"
             motion:layout_constraintEnd_toEndOf="@id/guideline_right"
             motion:layout_constraintStart_toEndOf="@+id/trapeze_right"
@@ -124,8 +124,8 @@
     <ConstraintSet android:id="@+id/end">
         <Constraint
             android:id="@+id/trapeze_left"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
             motion:layout_constraintBottom_toBottomOf="@id/guideline_top_40"
             motion:layout_constraintEnd_toEndOf="@id/guideline_right"
             motion:layout_constraintStart_toEndOf="@id/guideline_left"
@@ -137,13 +137,14 @@
         </Constraint>
         <Constraint
             android:id="@+id/trapeze_right"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
             motion:layout_constraintBottom_toTopOf="@id/guideline_top_40"
             motion:layout_constraintEnd_toStartOf="@id/guideline_right"
             motion:layout_constraintHorizontal_bias="0.45"
             motion:layout_constraintStart_toEndOf="@id/guideline_left"
-            motion:layout_constraintTop_toTopOf="@id/guideline_top_30" />
+            motion:layout_constraintTop_toTopOf="@id/guideline_top_30"
+            motion:layout_constraintVertical_bias="0.66999996" />
         <Constraint
             android:id="@+id/imagine_text"
             android:layout_width="wrap_content"
@@ -175,6 +176,11 @@
             motion:layout_constraintTop_toTopOf="parent"
             motion:layout_constraintStart_toStartOf="parent"
             android:id="@+id/butterfly_image" />
+        <Constraint
+            android:layout_height="wrap_content"
+            motion:layout_constraintGuide_percent="0.6"
+            android:layout_width="wrap_content"
+            android:id="@+id/guideline_top_40" />
 
     </ConstraintSet>
 </MotionScene>

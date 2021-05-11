@@ -10,7 +10,6 @@ object AppDependencies {
     private val extJUnit = "androidx.test.ext:junit:${Versions.extJunit}"
     private val espressoCore = "androidx.test.espresso:espresso-core:${Versions.espresso}"
 
-    private val androidx = "androidx.core:core-ktx:${Versions.coreKtx}"
     private val andrx_compat = "androidx.appcompat:appcompat:${Versions.appcompat}"
     private val material = "com.google.android.material:material:${Versions.material}"
     private val constraintLay =
