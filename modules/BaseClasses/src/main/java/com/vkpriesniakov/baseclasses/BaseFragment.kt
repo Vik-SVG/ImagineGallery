@@ -65,4 +65,5 @@ abstract class BaseFragment<VB : ViewBinding?, VM : BaseViewModel?>(private val 
         fun onFragmentAttached()
         fun onFragmentDetached(tag: String?)
     }
+
 }

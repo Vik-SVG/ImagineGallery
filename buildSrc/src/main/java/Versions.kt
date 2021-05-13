@@ -1,6 +1,7 @@
 object Versions {
     const val navigationComposeVers: String = "1.0.0-alpha10"
-    const val hilt_version: String = "2.35"
+    const val dagger_version: String = "2.35"
+    const val ext_hilt_vers = "1.0.0"
     const val pagindComposeVersion: String = "1.0.0-alpha08"
     const val picassoVer: String = "2.71828"
     const val material: String = "1.3.0"

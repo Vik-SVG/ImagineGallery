@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.vkpriesniakov.imaginesoft">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name="com.vkpriesniakov.imaginesoft.GalleryApp"
         android:allowBackup="true"

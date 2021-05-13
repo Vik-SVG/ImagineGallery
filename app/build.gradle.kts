@@ -3,6 +3,7 @@ plugins {
     id(AppConfig.kotlin_android)
     id(AppConfig.kotlin_kapt)
     id(AppConfig.hilt_plugin)
+    kotlin("plugin.serialization") version "1.5.0"
 }
 
 android {

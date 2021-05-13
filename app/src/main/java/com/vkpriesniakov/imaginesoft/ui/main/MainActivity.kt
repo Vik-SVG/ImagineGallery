@@ -6,7 +6,9 @@ import android.view.WindowInsets
 import android.view.WindowManager
 import com.vkpriesniakov.baseclasses.BaseActivity
 import com.vkpriesniakov.imaginesoft.databinding.ActivityMainBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity :
     BaseActivity<ActivityMainBinding, MainViewModel>(ActivityMainBinding::inflate) {
 

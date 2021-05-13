@@ -13,26 +13,23 @@
         android:layout_height="wrap_content"
         android:background="@color/white"
         android:backgroundTint="#FFFFFF"
-        android:fitsSystemWindows="true"
-        app:layout_scrollFlags="scroll|enterAlways|snap">
+        android:fitsSystemWindows="true">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:id="@+id/collapsing_toolbar"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="160dp"
             android:background="#FFFFFF"
             android:backgroundTint="#FFFFFF"
             android:fitsSystemWindows="true"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+            app:layout_scrollFlags="scroll|enterAlways|exitUntilCollapsed">
 
             <androidx.appcompat.widget.Toolbar
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
+                android:layout_height="40dp"
                 android:layout_gravity="top"
                 android:background="@color/white"
-                app:contentInsetStart="0dp"
-                app:layout_collapseMode="pin"
-                app:layout_scrollFlags="scroll|enterAlways|snap">
+                app:contentInsetStart="0dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -55,14 +52,13 @@
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tabs"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="20dp"
                 android:layout_gravity="bottom"
-                android:scrollIndicators="none"
-                app:layout_scrollFlags="enterAlways"
                 app:tabGravity="center"
                 app:tabIndicatorAnimationMode="linear"
                 app:tabIndicatorColor="@color/deep_sky"
-                app:tabIndicatorGravity="center"
+                app:tabIndicatorFullWidth="false"
+                app:tabIndicatorGravity="bottom"
                 app:tabIndicatorHeight="2dp"
                 app:tabMode="scrollable"
                 app:tabPaddingEnd="40dp"
@@ -98,8 +94,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
-                    android:fontFamily="@font/amarante"
+                    android:fontFamily="@font/marcellus_sc"
                     android:text="Get inspired,"
+                    android:textColor="@color/deep_sky"
                     android:textSize="34sp" />
 
                 <TextView
@@ -109,9 +106,9 @@
                     android:layout_below="@id/textView3"
                     android:layout_alignParentStart="true"
                     android:layout_marginStart="20dp"
-                    android:fontFamily="@font/amarante"
+                    android:fontFamily="@font/marcellus_sc"
                     android:text="seek for inspiration"
-                    android:textColor="@color/deep_sky"
+                    android:textColor="#FBC948"
                     android:textSize="34sp" />
             </RelativeLayout>
         </com.google.android.material.appbar.CollapsingToolbarLayout>
