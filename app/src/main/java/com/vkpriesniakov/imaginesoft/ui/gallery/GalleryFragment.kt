@@ -8,7 +8,6 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.vkpriesniakov.baseclasses.BaseFragment
 import com.vkpriesniakov.imaginesoft.databinding.FragmentGalleryBinding
 import com.vkpriesniakov.imaginesoft.ui.gallery.adapter.GalleryPagerAdapter
-import com.vkpriesniakov.imaginesoft.utils.getTypeByPosition
 import com.vkpriesniakov.imaginesoft.utils.setCubeTransformer
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
@@ -39,12 +38,12 @@ class GalleryFragment :
 
     private fun setupTabs() {
         TabLayoutMediator(
-            binding?.galleryInclude?.tabs!!,
+            binding?.tabs!!,
             binding?.galleryPager!!
         ) { tab, position ->
             when (position) {
-                0 -> tab.text = "All"
-                1 -> tab.text = "New"
+                0 -> tab.text = "Interest"
+                1 -> tab.text = "Favorite"
                 2 -> tab.text = "Trend"
             }
         }.attach()

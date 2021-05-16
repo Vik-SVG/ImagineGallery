@@ -1,4 +1,4 @@
-package com.vkpriesniakov.imaginesoft.data
+package com.vkpriesniakov.imaginesoft.data.entity
 
 import com.google.gson.annotations.SerializedName
 

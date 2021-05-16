@@ -1,34 +1,101 @@
 package com.vkpriesniakov.imaginesoft.ui.gallery.pages.all_images
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
+import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.os.bundleOf
+import androidx.core.view.ViewCompat
+import androidx.core.view.doOnPreDraw
+import androidx.fragment.app.commit
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.FragmentNavigatorExtras
+import androidx.paging.PagingData
+import androidx.paging.flatMap
+import androidx.paging.map
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.vkpriesniakov.baseclasses.BaseFragment
+import com.vkpriesniakov.imaginesoft.R
+import com.vkpriesniakov.imaginesoft.data.entity.FlickrImageResponse
 import com.vkpriesniakov.imaginesoft.databinding.FragmentAllImagesBinding
-import com.vkpriesniakov.imaginesoft.ui.gallery.GalleryViewModel
-import com.vkpriesniakov.imaginesoft.utils.LOG_TAG
+import com.vkpriesniakov.imaginesoft.ui.gallery.adapter.ImagePagingAdapter
+import com.vkpriesniakov.imaginesoft.ui.gallery.adapter.LoaderStateAdapter
+import com.vkpriesniakov.imaginesoft.ui.gallery.open_image.OpenImageFragment
+import com.vkpriesniakov.imaginesoft.utils.OPEN_IMAGE_KEY
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class ImagesAllFragment :
+abstract class ImagesAllFragment :
     BaseFragment<FragmentAllImagesBinding, ImagesAllViewModel>(FragmentAllImagesBinding::inflate) {
 
     val viewModel: ImagesAllViewModel by viewModels()
 
+    @Inject
+    lateinit var pagingAdapter: ImagePagingAdapter
+
+    var subscribeJob: Job? = null
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.getImageLiveData("latest").observe(viewLifecycleOwner, {
+        setupRecyclerView()
 
-            Log.d(LOG_TAG, it.message.toString())
-            Log.d(LOG_TAG, it.data?.get(0)?.urls?.raw.toString())
-        })
+        makeImagesJob()
+
+        setPullToRefresh()
+
+        pagingAdapter.clickCallback = { url -> }
     }
 
-    companion object {
-        fun newInstance() = ImagesAllFragment().apply {
+    private fun setPullToRefresh() {
+        binding?.swiperefresh?.apply {
+            setOnRefreshListener {
+                makeImagesJob()
+            }
+        }
+
+    }
+
+    private fun makeImagesJob() {
+        subscribeJob = null
+        subscribeJob = subscribeToImages()
+        pagingAdapter.notifyDataSetChanged()
+        binding?.swiperefresh?.isRefreshing = false
+    }
+
+    abstract fun imagesFlow(): Flow<PagingData<FlickrImageResponse>>
+
+    private fun subscribeToImages(): Job {
+        return lifecycleScope.launch {
+            imagesFlow().makeSubscription()
+        }
+    }
+
+    private suspend fun Flow<PagingData<FlickrImageResponse>>.makeSubscription() {
+        this.collectLatest {
+            pagingAdapter.submitData(it)
+            (view?.parent as ViewGroup).doOnPreDraw {
+
+            }
+        }
+    }
+
+
+    private fun setupRecyclerView() {
+        binding?.allImagesRecycler?.apply {
+            layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+            setHasFixedSize(false)
+            val loadStateAdapter = LoaderStateAdapter {
+                pagingAdapter.retry()
+            }
+            adapter = pagingAdapter.withLoadStateFooter(loadStateAdapter)
 
         }
     }

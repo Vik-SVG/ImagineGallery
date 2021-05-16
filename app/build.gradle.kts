@@ -3,8 +3,10 @@ plugins {
     id(AppConfig.kotlin_android)
     id(AppConfig.kotlin_kapt)
     id(AppConfig.hilt_plugin)
+    id("name.remal.check-dependency-updates") version "1.3.1"
     kotlin("plugin.serialization") version "1.5.0"
 }
+//gradlew checkDependencyUpdates
 
 android {
     compileSdkVersion(AppConfig.compileSdk)

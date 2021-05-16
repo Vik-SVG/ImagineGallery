@@ -1,4 +1,5 @@
 object Versions {
+    const val glideVer: String = "4.12.0"
     const val navigationComposeVers: String = "1.0.0-alpha10"
     const val dagger_version: String = "2.35"
     const val ext_hilt_vers = "1.0.0"

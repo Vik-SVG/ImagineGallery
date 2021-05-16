@@ -19,11 +19,11 @@ class SplashFragment :
 
     private fun onSplashEnding() {
         binding?.apply {
-            mainMotion?.setTransitionListener(object : MotionLayout.TransitionListener {
+            mainMotion.setTransitionListener(object : MotionLayout.TransitionListener {
 
                 override fun onTransitionCompleted(p0: MotionLayout?, p1: Int) {
-                    root?.findNavController()
-                        ?.navigate(R.id.action_splashFragment_to_galleryFragment)
+                    root.findNavController()
+                        .navigate(R.id.action_splashFragment_to_galleryFragment)
                 }
 
                 override fun onTransitionStarted(p0: MotionLayout?, p1: Int, p2: Int) {

@@ -1,6 +1,7 @@
 package com.vkpriesniakov.imaginesoft.ui.gallery
 
 import com.vkpriesniakov.baseclasses.BaseViewModel
+import com.vkpriesniakov.imaginesoft.data.repo.GalleryRepo
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -12,6 +13,5 @@ class GalleryViewModel
 
     val _sortOrder = MutableStateFlow("latest")
     val sortOrder: StateFlow<String> = _sortOrder
-
 
 }
