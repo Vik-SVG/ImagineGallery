@@ -51,7 +51,19 @@ abstract class ImagesAllFragment :
 
         setPullToRefresh()
 
-        pagingAdapter.clickCallback = { url -> }
+
+        pagingAdapter.clickCallback = { url, view ->
+
+
+            ViewCompat.setTransitionName(view, "item_image")
+
+            val extraNav = FragmentNavigatorExtras(view to "hero_image")
+
+            val bundle = bundleOf(OPEN_IMAGE_KEY to url)
+
+            requireActivity().findNavController(R.id.nav_host_fragment)
+                .navigate(R.id.action_galleryFragment_to_openImageFragment, bundle, null, extraNav)
+        }
     }
 
     private fun setPullToRefresh() {
@@ -81,9 +93,6 @@ abstract class ImagesAllFragment :
     private suspend fun Flow<PagingData<FlickrImageResponse>>.makeSubscription() {
         this.collectLatest {
             pagingAdapter.submitData(it)
-            (view?.parent as ViewGroup).doOnPreDraw {
-
-            }
         }
     }
 

@@ -19,7 +19,6 @@ import javax.inject.Inject
 class GalleryFragment :
     BaseFragment<FragmentGalleryBinding, GalleryViewModel>(FragmentGalleryBinding::inflate) {
 
-    @Inject
     lateinit var mAdapter: GalleryPagerAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -31,6 +30,7 @@ class GalleryFragment :
 
     private fun setupPager() {
         binding?.galleryPager?.apply {
+            mAdapter = GalleryPagerAdapter(this@GalleryFragment)
             adapter = mAdapter
             setCubeTransformer()
         }

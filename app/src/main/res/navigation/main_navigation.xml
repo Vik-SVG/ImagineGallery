@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_navigation"
-    app:startDestination="@id/galleryFragment">
+    app:startDestination="@id/splashFragment">
     <fragment
         android:id="@+id/splashFragment"
         android:name="com.vkpriesniakov.imaginesoft.ui.splash.SplashFragment"
@@ -19,5 +19,13 @@
     <fragment
         android:id="@+id/galleryFragment"
         android:name="com.vkpriesniakov.imaginesoft.ui.gallery.GalleryFragment"
-        android:label="GalleryFragment" />
+        android:label="GalleryFragment" >
+        <action
+            android:id="@+id/action_galleryFragment_to_openImageFragment"
+            app:destination="@id/openImageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/openImageFragment"
+        android:name="com.vkpriesniakov.imaginesoft.ui.gallery.open_image.OpenImageFragment"
+        android:label="OpenImageFragment" />
 </navigation>
