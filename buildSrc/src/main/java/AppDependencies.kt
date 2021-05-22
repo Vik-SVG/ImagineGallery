@@ -34,6 +34,8 @@ object AppDependencies {
     private const val moshiConverter = "com.squareup.retrofit2:converter-moshi:2.9.0"
     private const val gsonCOnverter = "com.squareup.retrofit2:converter-gson:2.9.0"
 
+    private const val dagger = "com.google.dagger:dagger:${Versions.dagger_version}"
+    private const val daggerKapt = "com.google.dagger:dagger-compiler:${Versions.dagger_version}"
     private const val hiltDeps = "com.google.dagger:hilt-android:${Versions.dagger_version}"
     private const val hiltKaptDeps = "com.google.dagger:hilt-compiler:${Versions.dagger_version}"
 
@@ -104,6 +106,7 @@ object AppDependencies {
         add(hiltKaptDeps)
         add(hilt_compiler_kapt)
         add(glideKapt)
+        add(daggerKapt)
     }
 
     val customLibraries = arrayListOf<String>().apply {
@@ -126,6 +129,7 @@ object AppDependencies {
         add(kotlinx_serialization)
         add(hiltDeps)
         add(hilt_viewModel)
+        add(dagger)
 
         add(viewModelDeps)
         add(kotlinx_serialization)
